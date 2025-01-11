@@ -1,4 +1,4 @@
-// Problem URL : https://leetcode.com/problems/contains-duplicate/description/
+// Problem URL : https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
 // Author      : Tanmay Chopade
 // Solved On   : 2025-01-11
 // Last Updated: [Optional: Last modification date or version number]
@@ -7,18 +7,22 @@
  *
  * Problem Description:
  * -----------------------------------------------------------------------------------------------
- * Given an integer array nums, return true if any value appears at least twice in the array, 
- * and return false if every element is distinct.
+ * You are given an integer mountain array arr of length n where the values increase to a peak element and then decrease.
+ * 
+ * Return the index of the peak element.
+ * 
+ * Your task is to solve it in O(log(n)) time complexity.
  *
  * Example:
  * -----------------------------------------------------------------------------------------------
- * Input: nums = [1,2,3,1]
- * Output: true
+ * Input: arr = [0,1,0]
+ * Output: 1
  *
  * Constraints::
  * -----------------------------------------------------------------------------------------------
- * 1 <= nums.length <= 105
- * -109 <= nums[i] <= 109
+ * 3 <= arr.length <= 105
+ * 0 <= arr[i] <= 106
+ * arr is guaranteed to be a mountain array.
  *
  **************************************************************************************************/
 
