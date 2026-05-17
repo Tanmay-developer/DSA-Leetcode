@@ -1,4 +1,4 @@
-# Problem URL : https://leetcode.com/problems/reverse-integer/description/
+# Problem URL : https://leetcode.com/problems/complement-of-base-10-integer/description/
 # Author      : Tanmay Chopade
 # Solved On   : 2026-05-17
 # Last Updated: [Optional: Last modification date or version number]
@@ -7,29 +7,30 @@
  *
  * Problem Description:
  * -----------------------------------------------------------------------------------------------
- * Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the 
- * value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+ * The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 
+ * 1's to 0's in its binary representation.
+ * For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
+ * Given an integer n, return its complement.
  *
  * Example:
  * -----------------------------------------------------------------------------------------------
- * Input: x = 123
- * Output: 321
+ * Input: n = 5
+ * Output: 2
  *
  * Constraints::
  * -----------------------------------------------------------------------------------------------
- * -231 <= x <= 231 - 1
+ * 0 <= n < 109
  *
  **************************************************************************************************/
 '''
 
 class Solution:
-    def reverse(self, x: int) -> int:
-        ans = 0
-        if x < 0:
-            ans = int(str(x)[1:][::-1]) * -1
-        else:
-            ans = int(str(x)[::-1])
-        
-        if ans > 2 ** 31 -1 or ans < -2 ** 31:
-            return 0
-        return ans
+    def bitwiseComplement(self, n: int) -> int:
+        if n == 0: 
+            return 1
+        mask = 0
+        m = n
+        while m != 0:
+            mask = (mask << 1) | 1
+            m = m >> 1
+        return ~n & mask
