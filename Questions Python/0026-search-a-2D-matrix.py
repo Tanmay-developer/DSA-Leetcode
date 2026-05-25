@@ -1,8 +1,8 @@
-// Problem URL : https://leetcode.com/problems/search-a-2d-matrix/description/
-// Author      : Tanmay Chopade
-// Solved On   : 2025-01-13
-// Last Updated: [Optional: Last modification date or version number]
-
+# Problem URL : https://leetcode.com/problems/search-a-2d-matrix/description/
+# Author      : Tanmay Chopade
+# Solved On   : 2026-05-25
+# Last Updated: [Optional: Last modification date or version number]
+'''
 /**************************************************************************************************
  *
  * Problem Description:
@@ -28,20 +28,21 @@
  * -104 <= matrix[i][j], target <= 104
  *
  **************************************************************************************************/
+'''
 
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int s = 0, e = m*n - 1;
-        while(s <= e){
-            int mid = s + (e-s)/2;
-            int element = matrix[mid/n][mid%n];
-            if(element == target)return true;
-            else if(element < target) s = mid + 1;
-            else e = mid - 1;
-        }
-        return false;
-    }
-};
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        row = len(matrix)
+        col = len(matrix[0])
+        s = 0
+        e = row*col - 1
+        while s <= e:
+            mid = s + (e-s)//2
+            element = matrix[mid//col][mid%col]
+            if element == target:
+                return True
+            elif element > target:
+                e = mid - 1
+            else:
+                s = mid + 1
+        return False
